@@ -5,15 +5,16 @@ app = Flask('jokeapi')
 
 @app.route('/')
 def jokeresponse():
-    response = r.get("https://official-joke-api.appspot.com/random_joke")
-    if response.status_code == 200:
-        joke = response.json()
-        print(joke['setup'])
-        print(joke['punchline'])
-        return(f"{joke['setup']} : {joke['punchline']}")
-    else:
-        
-        return("Failed to fetch joke")
+    response = {
+    "type": "general",
+    "setup": "Why did the Clydesdale give the pony a glass of water?",
+    "punchline": "Because he was a little horse!",
+    "id": 324}
 
+    joke = response.json()
+    print(joke['setup'])
+    print(joke['punchline'])
+    return(f"{joke['setup']} : {joke['punchline']}")
+        
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8000, debug=True)
