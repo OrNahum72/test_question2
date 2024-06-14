@@ -5,13 +5,11 @@ app = Flask('jokeapi')
 
 @app.route('/')
 def jokeresponse():
-    response = {
+    joke = {
     "type": "general",
     "setup": "Why did the Clydesdale give the pony a glass of water?",
     "punchline": "Because he was a little horse!",
     "id": 324}
-
-    joke = response.json()
     print(joke['setup'])
     print(joke['punchline'])
     return(f"{joke['setup']} : {joke['punchline']}")
